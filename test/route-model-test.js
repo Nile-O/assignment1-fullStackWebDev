@@ -5,7 +5,7 @@ import { testRoutes, frances } from "./fixtures.js";
 suite("Route Model tests", () => {
 
   setup(async () => {
-    db.init("json");
+    db.init("");
     await db.routeStore.deleteAllRoutes();
     for (let i = 0; i < testRoutes.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop

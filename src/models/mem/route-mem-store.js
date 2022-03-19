@@ -16,13 +16,16 @@ export const routeMemStore = {
 
   async getRouteById(id) {
       const list = routes.find((route) => route._id === id);
-      list.stops = await stopMemStore.getStopsByRouteId(list._id);
-    return list;
+      if (list) {
+        list.stops = await stopMemStore.getStopsByRouteId(list._id);
+        return list;
+      }
+      return null;
   },
 
   async deleteRouteById(id) {
     const index = routes.findIndex((route) => route._id === id);
-    routes.splice(index, 1);
+    if (index !== -1) routes.splice(index, 1);
   },
 
   async deleteAllRoutes() {
