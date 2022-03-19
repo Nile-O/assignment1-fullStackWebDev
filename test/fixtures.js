@@ -25,3 +25,19 @@ export const testUsers = [
       password: "secret",
     },
   ];
+
+  export const frances = {
+      title: "Camino Frances"
+  };
+
+  export const testRoutes = [
+      {
+          title: "Via de la Plata"
+      },
+      {
+          title: "Camino de Madrid"
+      },
+      {
+          title: "Camino Catalan"
+      }
+  ];

@@ -22,8 +22,12 @@ export const routeJsonStore = {
 
   async getRouteById(id) {
     await db.read();
-    const list = db.data.routes.find((route) => route._id === id);
-    list.stops = await stopJsonStore.getStopsByRouteId(list._id);
+    let list = db.data.routes.find((route) => route._id === id);
+    if (list) {
+      list.stops = await stopJsonStore.getStopsByRouteId(list._id);
+    } else {
+      list = null;
+    }
     return list;
   },
 
@@ -35,7 +39,7 @@ export const routeJsonStore = {
   async deleteRouteById(id) {
     await db.read();
     const index = db.data.routes.findIndex((route) => route._id === id);
-    db.data.routes.splice(index, 1);
+    if (index !== -1) db.data.routes.splice(index, 1);
     await db.write();
   },
 
