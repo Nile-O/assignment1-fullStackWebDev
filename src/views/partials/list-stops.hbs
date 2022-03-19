@@ -1,0 +1,29 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Stop</th>
+      <th>Location</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each route.stops}}
+      <tr>
+        <td>
+          {{title}}
+        </td>
+        <td>
+          {{location}}
+        </td>
+        <td>
+          {{description}}
+        </td>
+        <td>
+          <a href="/route/{{../route._id}}/deletestop/{{_id}}" class="ui icon button">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
