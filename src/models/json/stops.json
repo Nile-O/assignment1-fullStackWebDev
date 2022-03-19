@@ -1,3 +1,20 @@
 {
-    "stops" : []
+  "stops": [
+    {
+      "title": "Sarria",
+      "locationlat": 42.7808,
+      "locationlong": 7.4141,
+      "description": "Hilly",
+      "_id": "903b1088-6025-438f-84ab-4f6659d1aca6",
+      "routeid": "20d5d62d-d5cf-434b-bc1a-aab30c01e00a"
+    },
+    {
+      "title": "Santiago",
+      "locationlat": 45.695848,
+      "locationlong": -6.5478548743,
+      "description": "Never again",
+      "_id": "daf3c38e-3e87-4034-91f5-3a78e0b5e622",
+      "routeid": "b2190b93-6209-4ced-afbb-8a44622b8669"
+    }
+  ]
 }

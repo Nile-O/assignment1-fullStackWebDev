@@ -1,3 +1,18 @@
 {
-    "users": []
+  "users": [
+    {
+      "firstName": "Nile",
+      "lastName": "O'Hagan",
+      "email": "Nile16o@gmail.com",
+      "password": "1",
+      "_id": "bfc39c2f-7638-4d4d-b4bb-3393e2cd9caf"
+    },
+    {
+      "firstName": "Leanne",
+      "lastName": "Byrne",
+      "email": "leannebyrne82@gmail.com",
+      "password": "a4wrkMk3!KP4@#@",
+      "_id": "a8628356-938b-4682-8ba9-bf9edc1a37ee"
+    }
+  ]
 }

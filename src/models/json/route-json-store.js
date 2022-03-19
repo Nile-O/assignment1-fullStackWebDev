@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 // eslint-disable-next-line import/no-unresolved
 import { JSONFile, Low } from "lowdb";
-import { trackJsonStore } from "./stop-json-store.js";
+import { stopJsonStore } from "./stop-json-store.js";
 
 const db = new Low(new JSONFile("./src/models/json/routes.json"));
 db.data = { routes: [] };
