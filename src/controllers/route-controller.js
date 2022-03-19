@@ -17,7 +17,8 @@ export const routeController = {
       const route = await db.routeStore.getRouteById(request.params.id);
       const newStop = {
         title: request.payload.title,
-        location: request.payload.location,
+        locationlat: Number(request.payload.locationlat),
+        locationlong: Number(request.payload.locationlong),
         description: request.payload.description,
       };
       await db.stopStore.addStop(route._id, newStop);

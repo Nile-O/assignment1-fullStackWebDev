@@ -44,7 +44,8 @@ export const stopJsonStore = {
 
   async updateStop(stop, updatedStop) {
     stop.title = updatedStop.title;
-    stop.location = updatedStop.location;
+    stop.locationlat = updatedStop.locationlat;
+    stop.locationlong = updatedStop.locationlong;
     track.description = updatedStop.description;
     await db.write();
   },

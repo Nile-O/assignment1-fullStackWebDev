@@ -37,7 +37,8 @@ export const stopMemStore = {
 
   async updateStop(stop, updatedStop) {
     stop.title = updatedStop.title;
-    stop.location = updatedStop.location;
+    stop.locationlat = updatedStop.locationlat;
+    stop.locationlong = updatedStop.locationlong;
     stop.description = updatedStop.description;
   },
 };
