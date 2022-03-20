@@ -73,3 +73,5 @@ export const sarria = {
         "description": "Beautiful town - poor bulls"
     }
   ];
+
+  export const serviceUrl = "http://localhost:3000";
