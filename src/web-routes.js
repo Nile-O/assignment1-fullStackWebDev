@@ -20,4 +20,6 @@ export const webRoutes = [
   { method: "POST", path: "/dashboard/addroute", config: dashboardController.addRoute },
   { method: "GET", path: "/dashboard/deleteroute/{id}", config: dashboardController.deleteRoute },
   { method: "GET", path: "/route/{id}/deletestop/{stopid}", config: routeController.deleteStop },
+
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];
