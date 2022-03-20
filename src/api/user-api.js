@@ -1,32 +1,12 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
-import { UserSpec, UserArray, IdSpec } from "../models/db/joi-schemas.js";
+import { UserSpec, UserSpecPlus, IdSpec, UserArray } from "../models/db/joi-schemas.js";
 import { validationError } from "./logger.js";
 
 export const userApi = {
-  create: {
-    auth: false,
-    handler: async function(request, h) {
-      try {
-        const user = await db.userStore.addUser(request.payload);
-        if (user) {
-          return h.response(user).code(201);
-        }
-        return Boom.badImplementation("error creating user");
-      } catch (err) {
-        return Boom.serverUnavailable("Database Error");
-      }
-    },
-    tags: ["api"],
-    description: "Create a User",
-    notes: "Returns the newly created user",
-    validate: { payload: UserSpec, failAction: validationError },
-    response: { schema: UserSpec, failAction: validationError },
-  },
-
   find: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         const users = await db.userStore.getAllUsers();
         return users;
@@ -56,8 +36,28 @@ export const userApi = {
     tags: ["api"],
     description: "Get a specific user",
     notes: "Returns user details",
-    response: { schema: UserSpec, failAction: validationError },
     validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: UserSpecPlus, failAction: validationError },
+  },
+
+  create: {
+    auth: false,
+    handler: async function (request, h) {
+      try {
+        const user = await db.userStore.addUser(request.payload);
+        if (user) {
+          return h.response(user).code(201);
+        }
+        return Boom.badImplementation("error creating user");
+      } catch (err) {
+        return Boom.serverUnavailable("Database Error");
+      }
+    },
+    tags: ["api"],
+    description: "Create a User",
+    notes: "Returns the newly created user",
+    validate: { payload: UserSpec, failAction: validationError },
+    response: { schema: UserSpecPlus, failAction: validationError },
   },
 
   deleteAll: {
@@ -72,6 +72,6 @@ export const userApi = {
     },
     tags: ["api"],
     description: "Delete all userApi",
-    notes: "All userApi removed from Playtime",
-  }
+    notes: "All userApi removed from Poi",
+  },
 };

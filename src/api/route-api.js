@@ -1,5 +1,7 @@
 import Boom from "@hapi/boom";
+import { IdSpec, RouteArraySpec, RouteSpec, RouteSpecPlus } from "../models/db/joi-schemas.js";
 import { db } from "../models/db.js";
+import { validationError } from "./logger.js";
 
 export const routeApi = {
   find: {
@@ -12,6 +14,10 @@ export const routeApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    response: { schema: RouteArraySpec, failAction: validationError },
+    description: "Get all routes",
+    notes: "Returns all routes",
   },
 
   findOne: {
@@ -27,6 +33,11 @@ export const routeApi = {
         return Boom.serverUnavailable("No Route with this id");
       }
     },
+    tags: ["api"],
+    description: "Find a Route",
+    notes: "Returns a route",
+    validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: RouteSpecPlus, failAction: validationError },
   },
 
   create: {
@@ -43,6 +54,11 @@ export const routeApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Create a Route",
+    notes: "Returns the newly created route",
+    validate: { payload: RouteSpec, failAction: validationError },
+    response: { schema: RouteSpecPlus, failAction: validationError },
   },
 
   deleteOne: {
@@ -59,6 +75,9 @@ export const routeApi = {
         return Boom.serverUnavailable("No Route with this id");
       }
     },
+    tags: ["api"],
+    description: "Delete a route",
+    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
   deleteAll: {
@@ -71,5 +90,7 @@ export const routeApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Delete all RouteApi",
   },
 };
