@@ -48,6 +48,30 @@ export const poiService = {
         const res = await axios.get(`${this.poiUrl}/api/routes/${id}`);
         return res.data;
       },
-    
 
+      async getAllStops() {
+        const res = await axios.get(`${this.poiUrl}/api/stops`);
+        return res.data;
+      },
+    
+      async createStop(id, stop) {
+        const res = await axios.post(`${this.poiUrl}/api/routes/${id}/stops`, stop);
+        return res.data;
+      },
+    
+      async deleteAllStops() {
+        const res = await axios.delete(`${this.poiUrl}/api/stops`);
+        return res.data;
+      },
+    
+      async getStop(id) {
+        const res = await axios.get(`${this.poiUrl}/api/stops/${id}`);
+        return res.data;
+      },
+    
+      async deleteStop(id) {
+        const res = await axios.delete(`${this.poiUrl}/api/stops/${id}`);
+        return res.data;
+      },
+    
 };

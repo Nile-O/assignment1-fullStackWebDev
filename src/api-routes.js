@@ -1,5 +1,6 @@
 import { userApi } from "./api/user-api.js";
 import { routeApi } from "./api/route-api.js";
+import { stopApi } from "./api/stop-api.js";
 
 export const apiRoutes = [
   { method: "POST", path: "/api/users", config: userApi.create },
@@ -12,5 +13,12 @@ export const apiRoutes = [
   { method: "GET", path: "/api/routes", config: routeApi.find },
   { method: "GET", path: "/api/routes/{id}", config: routeApi.findOne },
   { method: "DELETE", path: "/api/routes/{id}", config: routeApi.deleteOne },
+
+  { method: "GET", path: "/api/stops", config: stopApi.find },
+  { method: "GET", path: "/api/stops/{id}", config: stopApi.findOne },
+  { method: "POST", path: "/api/routes/{id}/stops", config: stopApi.create },
+  { method: "DELETE", path: "/api/stops", config: stopApi.deleteAll },
+  { method: "DELETE", path: "/api/stops/{id}", config: stopApi.deleteOne },
+
 
 ];
