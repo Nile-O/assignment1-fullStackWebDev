@@ -24,4 +24,30 @@ export const poiService = {
         return res.data;
       },
 
+      async createRoute(route) {
+        const res = await axios.post(`${this.poiUrl}/api/routes`, route);
+        return res.data;
+      },
+    
+      async deleteAllRoutes() {
+        const response = await axios.delete(`${this.poiUrl}/api/routes`);
+        return response.data;
+      },
+    
+      async deleteRoute(id) {
+        const response = await axios.delete(`${this.poiUrl}/api/routes/${id}`);
+        return response;
+      },
+    
+      async getAllRoutes() {
+        const res = await axios.get(`${this.poiUrl}/api/routes`);
+        return res.data;
+      },
+    
+      async getRoute(id) {
+        const res = await axios.get(`${this.poiUrl}/api/routes/${id}`);
+        return res.data;
+      },
+    
+
 };
