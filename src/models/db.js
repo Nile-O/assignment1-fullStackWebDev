@@ -7,6 +7,7 @@ import { stopJsonStore } from "./json/stop-json-store.js";
 import { connectMongo } from "./mongo/connect.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { routeMongoStore } from "./mongo/route-mongo-store.js";
+import { stopMongoStore } from "./mongo/stop-mongo-store.js";
 
 export const db = {
   userStore: null,
@@ -23,6 +24,7 @@ export const db = {
       case "mongo":
         this.userStore = userMongoStore;
         this.routeStore = routeMongoStore;
+        this.stopStore = stopMongoStore;
         connectMongo();
         break;
       default:
