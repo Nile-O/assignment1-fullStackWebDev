@@ -1,11 +1,12 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { testRoutes, frances } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
 
 suite("Route Model tests", () => {
 
   setup(async () => {
-    db.init("");
+    db.init("mongo");
     await db.routeStore.deleteAllRoutes();
     for (let i = 0; i < testRoutes.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
@@ -15,7 +16,7 @@ suite("Route Model tests", () => {
 
   test("create a route", async () => {
     const route = await db.routeStore.addRoute(frances);
-    assert.equal(frances, route);
+    assertSubset(frances, route);
     assert.isDefined(route._id);
   });
 
@@ -30,7 +31,7 @@ suite("Route Model tests", () => {
   test("get a route - success", async () => {
     const route = await db.routeStore.addRoute(frances);
     const returnedRoute = await db.routeStore.getRouteById(route._id);
-    assert.equal(frances, route);
+    assertSubset(frances, route);
   });
 
   test("delete One Route - success", async () => {
