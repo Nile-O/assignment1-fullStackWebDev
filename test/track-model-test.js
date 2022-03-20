@@ -39,8 +39,8 @@ suite("Stop Model tests", () => {
   });
 
   test("get a stop - success", async () => {
-    const francesList = await db.routeStore.addRoute(frances);
-    const stop = await db.stopStore.addStop(francesList._id, sarria)
+    const portuguesList = await db.routeStore.addRoute(portugues);
+    const stop = await db.stopStore.addStop(portuguesList._id, sarria)
     const newStop = await db.stopStore.getStopById(stop._id);
     assertSubset (sarria, newStop);
   });
