@@ -7,6 +7,7 @@ export const apiRoutes = [
   { method: "GET", path: "/api/users", config: userApi.find },
   { method: "DELETE", path: "/api/users", config: userApi.deleteAll },
   { method: "GET", path: "/api/users/{id}", config: userApi.findOne },
+  { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
 
   { method: "POST", path: "/api/routes", config: routeApi.create },
   { method: "DELETE", path: "/api/routes", config: routeApi.deleteAll },
@@ -19,6 +20,5 @@ export const apiRoutes = [
   { method: "POST", path: "/api/routes/{id}/stops", config: stopApi.create },
   { method: "DELETE", path: "/api/stops", config: stopApi.deleteAll },
   { method: "DELETE", path: "/api/stops/{id}", config: stopApi.deleteOne },
-
 
 ];

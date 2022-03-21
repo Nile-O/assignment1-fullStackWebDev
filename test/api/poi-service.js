@@ -73,5 +73,18 @@ export const poiService = {
         const res = await axios.delete(`${this.poiUrl}/api/stops/${id}`);
         return res.data;
       },
+
+      async authenticate(user) {
+        const response = await axios.post(`${this.poiUrl}/api/users/authenticate`, user);
+        const newLocal = `Bearer ${  response.data.token}`;
+        // eslint-disable-next-line dot-notation
+        axios.defaults.headers.common["Authorization"] = newLocal;
+        return response.data;
+      },
+    
+      async clearAuth() {
+        // eslint-disable-next-line dot-notation
+        axios.defaults.headers.common["Authorization"] = "";
+      }
     
 };
