@@ -5,7 +5,9 @@ import { validationError } from "./logger.js";
 
 export const routeApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const routes = await db.routeStore.getAllRoutes();
@@ -21,7 +23,9 @@ export const routeApi = {
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const route = await db.routeStore.getRouteById(request.params.id);
@@ -41,7 +45,9 @@ export const routeApi = {
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const route = request.payload;
@@ -62,7 +68,9 @@ export const routeApi = {
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const route = await db.routeStore.getRouteById(request.params.id);
@@ -81,7 +89,9 @@ export const routeApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.routeStore.deleteAllRoutes();

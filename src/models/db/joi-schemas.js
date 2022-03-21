@@ -53,3 +53,10 @@ __v: Joi.number(),
 }).label("RoutePlus");
 
 export const RouteArraySpec = Joi.array().items(RouteSpecPlus).label("RouteArray");
+
+export const JwtAuth = Joi.object()
+  .keys({
+    success: Joi.boolean().example("true").required(),
+    token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
+  })
+  .label("JwtAuth");

@@ -5,7 +5,9 @@ import { validationError } from "./logger.js";
 
 export const stopApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const stops = await db.stopStore.getAllStops();
@@ -21,7 +23,9 @@ export const stopApi = {
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const stop = await db.stopStore.getStopById(request.params.id);
@@ -41,7 +45,9 @@ export const stopApi = {
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const stop = await db.stopStore.addStop(request.params.id, request.payload);
@@ -61,7 +67,9 @@ export const stopApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.stopStore.deleteAllStops();
@@ -75,7 +83,9 @@ export const stopApi = {
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const stop = await db.stopStore.getStopById(request.params.id);

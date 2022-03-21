@@ -2,16 +2,20 @@ import { assert } from "chai";
 import { poiService } from "./poi-service.js";
 import { assertSubset } from "../test-utils.js";
 
-import { maggie, frances, testRoutes } from "../fixtures.js";
+import { maggie, maggieCredentials, frances, testRoutes } from "../fixtures.js";
 
 suite("Route API tests", () => {
 
   let user = null;
 
   setup(async () => {
+    poiService.clearAuth();
+    user = await poiService.createUser(maggie);
+    await poiService.authenticate(maggieCredentials);
     await poiService.deleteAllRoutes();
     await poiService.deleteAllUsers();
     user = await poiService.createUser(maggie);
+    await poiService.authenticate(maggieCredentials);
     frances.userid = user._id;
   });
 
