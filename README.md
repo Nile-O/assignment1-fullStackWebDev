@@ -29,7 +29,8 @@ Provide an overview of the directory structure and files, for example:
 
 
 ## Running instructions
-The app can be accessed here  http://glitch
+The app can be accessed here  
+https://pitch-famous-book.glitch.me
 
 Building
 npm install
