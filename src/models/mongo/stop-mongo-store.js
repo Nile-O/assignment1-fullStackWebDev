@@ -38,11 +38,18 @@ export const stopMongoStore = {
     await Stop.deleteMany({});
   },
 
-  async updateStop(stop, updatedStop) {
+  /* async updateStop(stop, updatedStop) {
     stop.title = updatedStop.title;
     stop.locationlat = updatedStop.locationlat;
     stop.locationlong = updatedStop.locationlong
     stop.description = updatedStop.description;
-    await stop.save();
-  },
+    await stop.findOneAndUpdate(stop, updatedStop, { new: true});
+  }, */
+
+  /* async updateStop(stop, updatedStop) {
+    let stopt = await stop.findOneAndUpdate(stop, updatedStop, {
+      new: true
+    });
+    stopt = stop;
+  } */
 };

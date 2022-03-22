@@ -2,6 +2,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { routeController } from "./controllers/route-controller.js";
+import { stopController } from "./controllers/stop-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -20,6 +21,9 @@ export const webRoutes = [
   { method: "POST", path: "/dashboard/addroute", config: dashboardController.addRoute },
   { method: "GET", path: "/dashboard/deleteroute/{id}", config: dashboardController.deleteRoute },
   { method: "GET", path: "/route/{id}/deletestop/{stopid}", config: routeController.deleteStop },
+
+  { method: "GET", path: "/stop/{id}/editstop/{stopid}", config: stopController.index },
+  { method: "POST", path: "/stop/{id}/updatestop/{stopid}", config: stopController.update },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];

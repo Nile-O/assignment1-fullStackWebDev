@@ -1,0 +1,24 @@
+{{> menu}}
+
+<form class="box"  action="/stop/{{route._id}}/updatestop/{{stop._id}}" method="POST">
+  <label>Update Stop Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <input class="input" type="text" name="title", value="{{stop.title}}">
+      </div>
+      <div class="field">
+        <input class="input" type="number" step="any" name="locationlat" value="{{stop.locationlat}}">
+      </div>
+      <div class="field">
+        <input class="input" type="number" step="any" name="locationlong" value="{{stop.locationlong}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text"  name="description" value="{{stop.description}}">
+      </div>
+    </div>
+  </div>
+  <button class="button is-primary">Update Stop</button>
+</form>
+
+
