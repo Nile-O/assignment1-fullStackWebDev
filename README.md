@@ -31,5 +31,13 @@ Provide an overview of the directory structure and files, for example:
 ## Running instructions
 The app can be accessed here  http://glitch
 
+Building
+npm install
+To run the application, execute the following from within the project folder:
+
+npm run dev
+The application should be served on:
+
+http://localhost:3000/
 
 
