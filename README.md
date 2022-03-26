@@ -24,4 +24,6 @@ The application should be served on:
 
 http://localhost:3000/
 
+## Video Demo
+https://www.youtube.com/watch?v=XNoXq-aZXeI
 
