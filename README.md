@@ -11,23 +11,6 @@ CRUD routes and playlists.
 The project was completed with a Test Driven Development process. Multiple tests were used for testing the features of users, routes and stops as well as the various
  storage methods (Mem, JSON, Mongo) and the API. The API was created with Swagger documentation and full JWT security.
 
-
-## Repository overview
-
-Provide an overview of the directory structure and files, for example:
-
-├── README.md
-├── data
-├── gen
-│   ├── analysis
-│   ├── data-preparation
-│   └── paper
-└── src
-    ├── analysis
-    ├── data-preparation
-    └── paper
-
-
 ## Running instructions
 The app can be accessed here  
 https://pitch-famous-book.glitch.me
